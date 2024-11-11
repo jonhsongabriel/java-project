@@ -1,0 +1,55 @@
+package jonhson.project.maeven;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class Affiche {
+    private WebDriver driver;
+
+    @Before
+    public void setUp() {
+        // Mettre à jour avec le chemin complet vers votre chromedriver
+        System.setProperty("webdriver.chrome.driver", 
+                            "C:\\Users\\1916RATSIMBAHERISON\\scoop\\apps\\chromedriver\\current\\chromedriver.exe");
+
+        try {
+            driver = new ChromeDriver();
+        } catch (Exception e) {
+            System.out.println("Erreur lors du démarrage de ChromeDriver : " + e.getMessage());
+        }
+    }
+
+    @Test
+    public void testAfficheHelloWorld() {
+        // Charger une page HTML inline avec le texte "Hello World"
+        driver.get("data:text/html,<html><body><h1>Hello World</h1></body></html>");
+
+        // Rechercher l'élément <h1> et vérifier le texte
+        WebElement h1 = driver.findElement(By.tagName("h1"));
+        assertEquals("Hello World monde", h1.getText());
+
+        // Afficher le texte de l'élément pour vérifier visuellement
+        System.out.println("Texte trouvé : " + h1.getText());
+
+        // Ajouter une pause pour garder le navigateur ouvert plus longtemps (5 secondes)
+        try {
+            Thread.sleep(5000); // Pause de 5 secondes
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @After
+    public void tearDown() {
+       /* if (driver != null) {
+            driver.quit(); // Ferme le navigateur
+        }*/
+    }
+}

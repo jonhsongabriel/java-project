@@ -1,0 +1,5 @@
+package jonhson.project.maeven.service;
+
+public class User {
+
+}

@@ -1,0 +1,5 @@
+package jonhson.project.maeven.model;
+
+public class User {
+
+}

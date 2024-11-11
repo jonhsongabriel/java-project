@@ -1,0 +1,25 @@
+
+import static spark.Spark.*;
+
+import org.eclipse.jetty.server.Authentication.User;
+
+import com.google.gson.Gson;
+
+public class App {
+    public static void main(String[] args) {
+        UserDatabase db = new UserDatabase();
+        Gson gson = new Gson();
+
+        post("/addUser", (req, res) -> {
+            User user = gson.fromJson(req.body(), User.class);
+            db.addUser(user);
+            res.status(201);
+            return "Utilisateur ajouté!";
+        });
+
+        get("/listUsers", (req, res) -> {
+            res.type("application/json");
+            return gson.toJson(db.getAllUsers());
+        });
+    }
+}

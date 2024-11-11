@@ -1,0 +1,48 @@
+package jonhson.project.maeven;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class Affiche {
+    private WebDriver driver;
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", 
+                            "C:\\Users\\1916RATSIMBAHERISON\\scoop\\apps\\chromedriver\\current\\chromedriver.exe");
+        driver = new ChromeDriver();
+    }
+
+    @Test
+    public void testAfficheHelloWorld() {
+    	driver.get("data:text/html," +
+    		    "<html><body>" +
+    		    "<h1>Bonjour je vais demarer avec spring boot</h1>"+
+    		    "<p>Je suis une simple aprenant pour toi </p>"+
+    		    "<form>"
+    		    + "<h1>Mon formulaire</h1>"
+    		    + "<label for='nom'>Nom :</label>"
+    		    +"<input type='text' name='nom'>"
+    		    +"<label for='prenom'>Prenom :</label>"
+    		    +"<input type='text' name='prenom'>"
+    		    +"<button>Valider</button>"
+    		    + "</form>"+
+    		    "</body></html>");
+
+       
+    }
+
+    @After
+    public void tearDown() {
+        // Garder le navigateur ouvert pour vérifier
+        // driver.quit(); 
+    }
+}
