@@ -1,0 +1,61 @@
+package jonhson.project.maeven;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class Affiche {
+    private WebDriver driver;
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", 
+                            "C:\\Users\\1916RATSIMBAHERISON\\scoop\\apps\\chromedriver\\current\\chromedriver.exe");
+        driver = new ChromeDriver();
+    }
+
+    @Test
+    public void testAfficheHelloWorld() {
+    	
+    	double a=2;
+    	double b=20;
+    	double c=4566;
+    	double delta;
+    	double solution1=0;
+    	double solution2=0;
+    	String resultat  ;
+    	delta=(b*b)-(4*a*c);
+    	if(delta<0) {
+    		resultat="Les equation n'avais pas des solution";
+    	}
+    	else if(delta==0) {
+    		double reponse=solution1=solution2=-b/2*a;
+    		resultat="Les equation a une solution"+reponse;
+    	}
+    	else if(delta>0) {
+    		solution1=(-b+Math.sqrt(delta))/(2*a);
+    		solution2=(-b-Math.sqrt(delta))/(2*a);
+    		resultat="L'équation a double: solution1 "+solution1+"et solution2 "+solution2;
+    	}
+		driver.get("data:text/html," +
+    		    "<html><body>" +
+    		    "La resultat de l'équation est "+
+    		    "<p>" +resultat +"</p>"+
+    		    "</body></html>");
+
+       
+    }
+
+    @After
+    public void tearDown() {
+        // Garder le navigateur ouvert pour vérifier
+        // driver.quit(); 
+    }
+}

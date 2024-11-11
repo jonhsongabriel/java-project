@@ -1,0 +1,85 @@
+package jonhson.project.maeven;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Affiche {
+    private WebDriver driver;
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", 
+                            "C:\\Users\\1916RATSIMBAHERISON\\scoop\\apps\\chromedriver\\current\\chromedriver.exe");
+        driver = new ChromeDriver();
+    }
+
+    @Test
+    public void testAfficheHelloWorld() {
+    
+    	 String htmlForm=
+    		    "<html>"
+    			 +"<head>"
+    		     +"<metacharset='utf_8'>"
+    			 +"<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>"
+    		     +"<title>Formulaire de registre</title>"
+    			 +"</head>"		
+    		    + "<body>" +
+    		    "<h1 class='text-danger bg-success text-center'>Formulaire d'utilisateur</h1>" +
+                "<form id='userForm' class='container m-4 p-4 '>" +
+                "<label for='nom'class='form-label'>Nom:</label> <input type='text' class='form-control' id='nom'><br>" +
+                "<label for='prenom'class='form-label'>Prenom:</label> <input type='text'class='form-control' id='prenom'><br>" +
+                "<label for='age'class='form-label'>Age:</label> <input type='number'class='form-control' id='age'><br>" +
+                "<label for='adresse'class='form-label'>Adresse:</label> <input type='text'class='form-control' id='adresse'><br>" +
+                "<label for='contact'class='form-label'>Contact:</label> <input type='text'class='form-control' id='contact'><br>" +
+                "<label for='email'class='form-label'>Email:</label> <input type='email'class='form-control' id='email'><br>" +
+                "<button type='button' class='btn btn-danger text-white' onclick='ajouterLigne()'>Soumettre</button>" +
+                "</form>" +
+                "<h2>Tableau des utilisateurs</h2>" +
+                "<table border='1' id='userTable' class='table table-dark'> <thead>" +
+                "  <tr><th>Nom</th><th>Prénom</th><th>Âge</th><th>Adresse</th><th>Contact</th><th>Email</th></tr></thead>" +
+                "</table>" +
+                "<script>" +
+                "function ajouterLigne() {" +
+                "  var nom = document.getElementById('nom').value;" +
+                "  var prenom = document.getElementById('prenom').value;" +
+                "  var age = document.getElementById('age').value;" +
+                "  var adresse = document.getElementById('adresse').value;" +
+                "  var contact = document.getElementById('contact').value;" +
+                "  var email = document.getElementById('email').value;" +
+                "  var table = document.getElementById('userTable');" +
+                "  var row = table.insertRow();" +
+                "  row.innerHTML = '<td>' + nom + '</td><td>' + prenom + '</td><td>' + age + '</td><td>' + adresse + '</td><td>' + contact + '</td><td>' + email + '</td>';"+ 
+                                        
+                "}" +
+                "</script>" +
+    		    "</body></html>";
+
+		// Charger le contenu HTML dans le navigateur
+        driver.get("data:text/html," + htmlForm);
+
+        // Simuler la soumission du formulaire avec Selenium
+        driver.findElement(By.id("nom")).sendKeys();
+        driver.findElement(By.id("prenom")).sendKeys();
+        driver.findElement(By.id("age")).sendKeys();
+        driver.findElement(By.id("adresse")).sendKeys();
+        driver.findElement(By.id("contact")).sendKeys();
+        driver.findElement(By.id("email")).sendKeys();
+
+        // Soumettre le formulaire en cliquant sur le bouton
+        WebElement button = driver.findElement(By.xpath("//button[text()='Soumettre']"));
+        button.click();
+
+        // Affichage des résultats de débogage
+        System.out.println("Formulaire soumis et ligne ajoutée dans le tableau.");
+    }
+
+    @After
+    public void tearDown() {
+        // Garder le navigateur ouvert pour vérifier
+        // driver.quit(); 
+    }
+}

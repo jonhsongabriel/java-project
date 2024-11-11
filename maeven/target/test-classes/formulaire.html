@@ -1,0 +1,63 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>
+    <title>Formulaire de registre</title>
+    </head>		
+    <body> 
+        <header>
+            <ul class="nav justify-content-center">
+            
+                <li class="nav-itema ctive" aria-current="page">
+                  <a class="nav-link" href="index.html">ACCUEIL</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="formulaire.html">iNSCRIRE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  " href="liste.html">LISTE</a>
+                </li>
+              </ul>
+        </header>
+        <h1 class='text-danger bg-success text-center'>Formulaire d'utilisateur</h1> 
+        <div class='row bg-primary'>
+        <form id='userForm' class='container m-4 p-4 ' action="http://localhost:8099/addUser"> 
+            <div class=" mb-3">
+                <label for='nom'class='form-label text-white'>Nom:</label> 
+                <input type='text' class='form-control' id='nom'>
+            </div> 
+            <div class=" mb-3">
+                   <label for='prenom'class='form-label text-white'>Prenom:</label> 
+                    <input type='text'class='form-control' id='prenom'> 
+            </div>  
+                    
+            <div class=" mb-3">
+                <label for='age'class='form-label text-white'>Age:</label>
+                <input type='number'class='form-control' id='age'>
+            </div>
+                
+             <div class=" mb-3">
+                <label for='adresse'class='form-label text-white'>Adresse:</label> 
+                <input type='text'class='form-control' id='adresse'> 
+             </div>
+                
+            <div class=" mb-3">
+                <label for='contact'class='form-label text-white'>Contact:</label> 
+                <input type='text'class='form-control' id='contact'> 
+            </div>
+                
+            <div class=" mb-3">
+                <label for='email'class='form-label text-white'>Email:</label>
+                <input type='email'class='form-control' id='email'>
+            </div>
+                
+            <button type='button' class='btn btn-danger text-white'>
+                Soumettre
+            </button> 
+        </form> 
+        </div>
+        <script src="js/javascripte.js"></script>
+    </script> 
+    </body>
+</html>

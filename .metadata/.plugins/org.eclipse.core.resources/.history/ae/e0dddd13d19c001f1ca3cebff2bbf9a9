@@ -1,0 +1,26 @@
+package jonhson.project.maeven.service;
+import jonhson.project.maeven.model.User;
+
+public class UserModel {
+    String message;
+	public void verification(User user) {
+		 if(user.getNom()=="") {
+			 message="Le chanp nom ne devrais pas etre vide";
+		 }
+		 else if(user.getPrenom()=="") {
+			 message="Le chanp prenom ne devrais pas etre vide";
+		 }
+		 else if(user.getAge()==0) {
+			 message="Le chanp age ne devrais pas etre vide";
+		 }
+		 else if(user.getAdresse()=="") {
+			 message="Le chanp adresse ne devrais pas etre vide";
+		 }
+		 else if(user.getContact()=="") {
+			 message="Le chanp contact ne devrais pas etre vide";
+		 }
+		 else if(user.getEmail()=="") {
+			 message="Le chanp email ne devrais pas etre vide";
+		 }
+	}
+}

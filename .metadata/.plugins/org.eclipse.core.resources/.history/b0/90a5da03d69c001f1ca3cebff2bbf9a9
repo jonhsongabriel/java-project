@@ -1,0 +1,113 @@
+package jonhson.project.maeven;
+import jonhson.project.maeven.model.User;
+import jonhson.project.maeven.service.UserModel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class Affiche {
+    private WebDriver driver;
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", 
+                            "C:\\Users\\1916RATSIMBAHERISON\\scoop\\apps\\chromedriver\\current\\chromedriver.exe");
+        driver = new ChromeDriver();
+    }
+
+    @Test
+    public void testAfficheHelloWorld() {
+    	
+    	double a=2;
+    	double b=20;
+    	double c=4;
+    	double delta;
+    	double solution1=0;
+    	double solution2=0;
+    	String resultat = "resultat"  ;
+    	delta=(b*b)-(4*a*c);
+    	
+    	if(delta==0) {
+    		double reponse=solution1=solution2=-b/2*a;
+    		resultat="Les equation a une solution"+reponse;
+    	}
+    	else if(delta>0) {
+    		solution1=(-b+Math.sqrt(delta))/(2*a);
+    		solution2=(-b-Math.sqrt(delta))/(2*a);
+    		resultat="L'équation a double: solution1 "+solution1+"et solution2 "+solution2;
+    	}
+    	else if(delta<0) {
+    		resultat="Les equation n'avais pas des solution";
+    	}
+    	
+    	/*
+    	User personne= new User("jonhson","mbelo",30,"antananarivo","0343737179","mbelo@gmail.com");
+    	String validation=UserModel.verification(personne);
+    	String personnelle=UserModel.personneInfo(personne);
+    	*/
+    	 String htmlForm=
+    		    "<html><body>" +
+    		    "<h1>Formulaire d'utilisateur</h1>" +
+                "<form id='userForm'>" +
+                "Nom: <input type='text' id='nom'><br>" +
+                "Prénom: <input type='text' id='prenom'><br>" +
+                "Âge: <input type='number' id='age'><br>" +
+                "Adresse: <input type='text' id='adresse'><br>" +
+                "Contact: <input type='text' id='contact'><br>" +
+                "Email: <input type='email' id='email'><br>" +
+                "<button type='button' onclick='ajouterLigne()'>Soumettre</button>" +
+                "</form>" +
+                "<h2>Tableau des utilisateurs</h2>" +
+                "<table border='1' id='userTable'>" +
+                "  <tr><th>Nom</th><th>Prénom</th><th>Âge</th><th>Adresse</th><th>Contact</th><th>Email</th></tr>" +
+                "</table>" +
+                "<script>" +
+                "function ajouterLigne() {" +
+                "  var nom = document.getElementById('nom').value;" +
+                "  var prenom = document.getElementById('prenom').value;" +
+                "  var age = document.getElementById('age').value;" +
+                "  var adresse = document.getElementById('adresse').value;" +
+                "  var contact = document.getElementById('contact').value;" +
+                "  var email = document.getElementById('email').value;" +
+                "  var table = document.getElementById('userTable');" +
+                "  var row = table.insertRow();" +
+                "  row.innerHTML = '<td>' + nom + '</td><td>' + prenom + '</td><td>' + age + '</td><td>' + adresse + '</td><td>' + contact + '</td><td>' + email + '</td>';" +
+                "}" +
+                "</script>" +
+    		    "La resultat de l'équation est "+
+    		    "<p>" +resultat +"</p>"+
+    		    "</body></html>");
+
+		// Charger le contenu HTML dans le navigateur
+        driver.get("data:text/html," + htmlForm);
+
+        // Simuler la soumission du formulaire avec Selenium
+        driver.findElement(By.id("nom")).sendKeys("Dupont");
+        driver.findElement(By.id("prenom")).sendKeys("Jean");
+        driver.findElement(By.id("age")).sendKeys("30");
+        driver.findElement(By.id("adresse")).sendKeys("123 Rue Exemple");
+        driver.findElement(By.id("contact")).sendKeys("0601020304");
+        driver.findElement(By.id("email")).sendKeys("jean.dupont@example.com");
+
+        // Soumettre le formulaire en cliquant sur le bouton
+        WebElement button = driver.findElement(By.xpath("//button[text()='Soumettre']"));
+        button.click();
+
+        // Affichage des résultats de débogage
+        System.out.println("Formulaire soumis et ligne ajoutée dans le tableau.");
+    }
+
+    @After
+    public void tearDown() {
+        // Garder le navigateur ouvert pour vérifier
+        // driver.quit(); 
+    }
+}
