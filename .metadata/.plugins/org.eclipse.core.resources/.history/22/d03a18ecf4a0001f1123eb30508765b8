@@ -8,8 +8,7 @@ import jonhson.project.maeven.model.UserDatabase;
 import static spark.Spark.post;
 
 public class App {
-    @SuppressWarnings("unused")
-	public static void main(String[] args) {
+    public static void main(String[] args) {
     	UserDatabase db = new UserDatabase();
         Gson gson = new Gson();
 

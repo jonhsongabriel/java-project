@@ -2337,3 +2337,21 @@ Contains: Missing dom4j:dom4j:jar:sources:3.0.0
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2024-11-12 15:16:42.994
 !MESSAGE Classpath changed for project: maeven
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-11-12 15:50:13.566
+!MESSAGE The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-11-12 15:50:51.109
+!MESSAGE The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-11-12 15:50:52.061
+!MESSAGE Classpath changed for project: maeven
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-11-12 16:27:37.403
+!MESSAGE The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-11-12 16:27:38.236
+!MESSAGE Classpath changed for project: maeven
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-11-12 16:36:06.533
+!MESSAGE Classpath changed for project: maeven
