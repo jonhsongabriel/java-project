@@ -24,10 +24,11 @@
       <version>4.13.2</version> <!-- Utilisez uniquement JUnit 4 -->
       <scope>test</scope>
     </dependency>
-      <dependency>
+    
+<dependency>
     <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>1.7.5</version>
+    <artifactId>slf4j-simple</artifactId>
+    <version>${slf4j.version}</version>
 </dependency>
    <dependency>
 	    <groupId>com.sparkjava</groupId>

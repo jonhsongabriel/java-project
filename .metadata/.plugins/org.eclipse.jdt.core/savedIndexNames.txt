@@ -1,6 +1,6 @@
 INDEX VERSION 1.134+C:\Users\1916RATSIMBAHERISON\Desktop\Etude de java\.metadata\.plugins\org.eclipse.jdt.core
 2474604559.index
-685418676.index
+2976561607.index
 4276114536.index
 3209971025.index
 1848051147.index
@@ -48,13 +48,11 @@ INDEX VERSION 1.134+C:\Users\1916RATSIMBAHERISON\Desktop\Etude de java\.metadata
 4162228670.index
 3900720682.index
 1980113204.index
-1818777000.index
 2778935340.index
 2057380432.index
 2560537213.index
 3293642861.index
 1860385733.index
-2267405994.index
 3745198135.index
 1749771605.index
 1672089704.index
@@ -88,4 +86,4 @@ INDEX VERSION 1.134+C:\Users\1916RATSIMBAHERISON\Desktop\Etude de java\.metadata
 875648372.index
 1096936878.index
 1115662596.index
-2976561607.index
+685418676.index

@@ -4,7 +4,6 @@ import  java.sql.Connection;
 import  java.sql.DriverManager;
 import  java.sql.PreparedStatement;
 import  java.sql.ResultSet;
-
 import  java.util.ArrayList;
 import  java.util.List;
 
@@ -39,7 +38,7 @@ public List<User> getAllUsers() throws Exception {
     String sql = "SELECT * FROM users";
     try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
         while (rs.next()) {
-            User user = new User();
+            User user = new User(sql, sql, 0, sql, sql, sql);
             user.setNom(rs.getString("nom"));
             user.setPrenom(rs.getString("prenom"));
             user.setAge(rs.getInt("age"));
