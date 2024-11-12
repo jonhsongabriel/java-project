@@ -1,0 +1,62 @@
+package jonhson.project.maeven.servlet;
+
+import jonhson.project.maeven.model.User;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/addUser")
+public class AddUserServlet extends HttpServlet {
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Récupération des données du formulaire
+        String nom = request.getParameter("nom");
+        String prenom = request.getParameter("prenom");
+        int age = Integer.parseInt(request.getParameter("age"));
+        String adresse = request.getParameter("adresse");
+        String contact = request.getParameter("contact");
+        String email = request.getParameter("email");
+
+        // Création de l'objet User
+        User user = new User(nom, prenom, age, adresse, contact, email);
+
+        // Connexion à la base de données MySQL
+        String url = "jdbc:mysql://localhost:3306/nom_de_votre_base";
+        String username = "votre_utilisateur";
+        String password = "votre_mot_de_passe";
+        
+        try {
+            // Etablissement de la connexion
+            Connection connection = DriverManager.getConnection(url, username, password);
+            
+            // Requête SQL d'insertion
+            String insertQuery = "INSERT INTO utilisateurs (nom, prenom, age, adresse, contact, email) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(insertQuery);
+            statement.setString(1, user.getNom());
+            statement.setString(2, user.getPrenom());
+            statement.setInt(3, user.getAge());
+            statement.setString(4, user.getAdresse());
+            statement.setString(5, user.getContact());
+            statement.setString(6, user.getEmail());
+            
+            // Exécution de la requête
+            statement.executeUpdate();
+            
+            // Fermer la connexion
+            statement.close();
+            connection.close();
+            
+            // Redirection ou message de succès
+            response.sendRedirect("liste.html");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.getWriter().write("Erreur lors de l'ajout de l'utilisateur : " + e.getMessage());
+        }
+    }
+}

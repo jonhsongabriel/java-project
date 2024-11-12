@@ -1,28 +1,25 @@
 package jonhson.project.maeven.model;
 
 public class User {
-     String nom;
-	 String prenom;
-	 int age;
-     String adresse;
-     String contact;
-     String email;
+
+	public String nom;
+	public String prenom;
+	public int age;
+    public String adresse;
+    public String contact;
+    public String email;
     
-  
-
-
-
-	public User(String nom, String prenom, int age, String adresse, String contact, String email) {
-		// TODO Auto-generated constructor stub
-		this.nom=nom;
+    //Constructeur de User
+    public User()
+    {
+    	this.nom=nom;
     	this.prenom=prenom;
     	this.age=age;
     	this.adresse=adresse;
     	this.contact=contact;
     	this.email=email;
-	}
-
-
+    }
+	
 
 
 
